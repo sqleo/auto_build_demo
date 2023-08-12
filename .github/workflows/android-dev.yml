@@ -45,9 +45,9 @@ jobs:
       - name: Tagged Release Step
         if: startsWith(github.ref, 'refs/tags/')
         run: |
-          # 在打标签后执行的操作
           echo "This step will be executed after tagging"
           echo "Tag name: ${{ github.ref }}"
+      # 在打标签后执行的操作
       # - name: Upload PGYER File
       #   id: pgyer
       #   uses: xtayga/upload-pgyer-action@master
