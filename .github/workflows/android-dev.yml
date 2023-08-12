@@ -1,10 +1,10 @@
-name: Flutter_Android_DEMO
+name: Flutter_Android
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   pull_request:
-    branches: [main]
+    branches: [master]
 
 jobs:
   build_android:
@@ -12,17 +12,17 @@ jobs:
 
     steps:
       - name: Checkout the code
-        uses: actions/checkout@2
+        uses: actions/checkout@v2
 
       - name: Setup Java to compile Android project
-        uses: actions/setup-java@1
+        uses: actions/setup-java@v1
         with:
-            java-version: "11"
+          java-version: "18.x"
 
       - name: Install and set Flutter version
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.3.9"
+            flutter-version: "3.3.9"
 
       - name: Create the Keystore
         env:
@@ -39,16 +39,3 @@ jobs:
 
       - name: Build Android App Bundle
         run: flutter build apk --release
-
-      # - name: Upload PGYER File
-      #   uses: xtayga/upload-pgyer-action@master
-      #   with:
-      #     url: https://www.pgyer.com/apiv2/app/upload
-      #     forms: '{"_api_key": "${{ secrets.PGY_KEY }}", "buildName": "RSSAndroid"}'
-      #     file: build/app/outputs/apk/release/app-release.apk
-
-      # - name: Publish Android Artefacts
-      #   uses: actions/upload-artifact@v1
-      #   with:
-      #     name: release-aab
-      #     path: build/app/outputs/apk/release/app-release.apk
