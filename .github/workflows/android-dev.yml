@@ -41,20 +41,13 @@ jobs:
 
       - name: Build Android App Bundle
         run: flutter build apk --release
-      
-      - name: Tagged Release Step
-        if: startsWith(github.ref, 'refs/tags/')
-        run: |
-          echo "This step will be executed after tagging"
-          echo "Tag name: ${{ github.ref }}"
-      # 在打标签后执行的操作
+
       # - name: Upload PGYER File
-      #   id: pgyer
       #   uses: xtayga/upload-pgyer-action@master
       #   with:
       #     url: https://www.pgyer.com/apiv2/app/upload
-      #     forms: '{"_api_key":"${{ secrets.PGY_KEY }}","buildName":"RSSAndroid"}'
-      #     fileForms: '{"file":"build/app/outputs/apk/release/app-release.apk"}'
+      #     forms: '{"_api_key": "${{ secrets.PGY_KEY }}", "buildName": "RSSAndroid"}'
+      #     file: build/app/outputs/apk/release/app-release.apk
 
       # - name: Publish Android Artefacts
       #   uses: actions/upload-artifact@v1
