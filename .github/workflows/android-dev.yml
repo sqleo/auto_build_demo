@@ -3,8 +3,6 @@ name: Flutter_Android_DEMO
 on:
   push:
     branches: [main]
-    tags:
-      - '*'
   pull_request:
     branches: [main]
 
