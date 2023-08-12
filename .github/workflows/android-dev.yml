@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: Checkout the code
-        uses: actions/checkout
+        uses: actions/checkout@2
 
       - name: Setup Java to compile Android project
-        uses: actions/setup-java
+        uses: actions/setup-java@2
         with:
             java-version: "11"
 
