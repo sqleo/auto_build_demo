@@ -18,4 +18,8 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: "18.x"
-
+          
+      - name: Install and set Flutter version
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.3.9"
